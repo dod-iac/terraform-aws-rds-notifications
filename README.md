@@ -35,6 +35,7 @@ module "rds-notifications" {
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | sns\_topic\_name | The name of the SNS topic to send AWS RDS notifications. | `string` | n/a | yes |
+| template | Input template for CloudWatch event target. | `string` | `"\"AWS RDS Snapshot Change: Event \u003cevent\u003e with request parameters: \u003cparameters\u003e.\""` | no |
 
 ## Outputs
 

@@ -23,11 +23,13 @@ resource "aws_cloudwatch_event_target" "main" {
 
   input_transformer {
     input_paths = {
+      account    = "$.account"
       event      = "$.detail.eventName"
       parameters = "$.detail.requestParameters"
+      region     = "$.region"
+      time       = "$.time"
     }
 
-    input_template = "\"AWS RDS Snapshot Change: Event <event> with request parameters: <parameters>.\""
+    input_template = var.template
   }
 }
-
